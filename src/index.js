@@ -6,6 +6,6 @@ app.get('/', (req, res) => {
 	res.send('<h1>Hello World</h1>');
 });
 
-app.listen(4500, () => {
-	console.log('Listening on port 4500');
+app.listen(8080, () => {
+	console.log('Listening on port 8080');
 });
