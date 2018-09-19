@@ -1,11 +1,21 @@
-const express = require('express');
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router";
 
-const app = express();
+import indexRoutes from "./routes/index.jsx";
 
-app.get('/', (req, res) => {
-	res.send('<h1>Hello World</h1>');
-});
+import "./assets/scss/material-kit-react.css";
 
-app.listen(8080, () => {
-	console.log('Listening on port 8080');
-});
+var hist = createBrowserHistory();
+
+ReactDOM.render(
+  <Router history={hist}>
+    <Switch>
+      {indexRoutes.map((prop, key) => {
+        return <Route path={prop.path} key={key} component={prop.component} />;
+      })}
+    </Switch>
+  </Router>,
+  document.getElementById("root")
+);
